@@ -36,6 +36,8 @@ class expediaUnitTest():
 
     def gotoexpedia(self):
         self.driver.get("http://www.expedia.com/")
+        self.driver.maximize_window()
+        self.driver.implicitly_wait(20)
         ui.WebDriverWait(self.driver, 35).until(EC.visibility_of_element_located((By.ID, "account-menu")))
         self.driver.find_element_by_id("account-menu").click()
         ui.WebDriverWait(self.driver, 35).until(EC.visibility_of_element_located((By.ID, "account-signin")))
@@ -43,11 +45,11 @@ class expediaUnitTest():
         self.driver.find_element_by_id("signin-loginid").send_keys("microsftboughit@gmail.com")
         self.driver.find_element_by_id("signin-password").send_keys("passowrdispwssword")
         self.driver.find_element_by_id("submitButton").click()
-
+        self.driver.quit()
 
         # ui.WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.ID, "tab-flight-tab-hp")))
         # self.driver.find_element_by_id("tab-flight-tab-hp").click()  # clicks on the flights button.
-        time.sleep(10)
+        # time.sleep(10)
 
     def teardown(self):
         self.driver.close()
