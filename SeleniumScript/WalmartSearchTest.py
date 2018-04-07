@@ -1,7 +1,7 @@
 
 """
-The below code takes you to the site http://www.walmart.com on chrome browser, click on
-search bar, type "Laptop", click on search button and clicks on sort drop down menu.
+The code takes the site http://www.walmart.com on chrome browser, clicks on
+search bar, type "laptop", clicks on search button and clicks on sort drop down menu.
 """
 
 from selenium import webdriver
