@@ -1,10 +1,9 @@
 
 """
 The below code takes you to the site http://www.expdia.com on chrome browser, click on
-Account> Sign In> fills in Email Address box as "microsftboughit@gmail.com", Password box as "passowrdispwssword"
-and click on Sign In button.
+Account> Sign In> fills in Email Address box as "microsftboughit@gmail.com", Password box as "passowrdispwssword",
+click on Sign In button closes the browser.
 """
-
 
 
 from selenium import webdriver
@@ -17,7 +16,7 @@ import os
 import time
 
 
-class expediaUnitTest():
+class ExpediaLoginTest:
 
     def __init__(self):
 
@@ -56,7 +55,7 @@ class expediaUnitTest():
 
 
 if __name__ == "__main__":
-    obj = expediaUnitTest()
+    obj = ExpediaLoginTest()
     obj.gotoexpedia()
 
 
