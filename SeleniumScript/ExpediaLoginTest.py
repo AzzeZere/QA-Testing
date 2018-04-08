@@ -6,7 +6,6 @@ click on Sign In button closes the browser.
 """
 
 
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
