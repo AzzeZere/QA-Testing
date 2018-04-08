@@ -14,7 +14,7 @@ import os
 import time
 
 
-class BestBuySearchTest:
+class WalmartSearchTest:
 
     def __init__(self):
 
@@ -31,7 +31,7 @@ class BestBuySearchTest:
     def timepractice(self):
         time.sleep(10)
 
-    def gotoexpedia(self):
+    def gotowalmart(self):
         self.driver.get("http://www.walmart.com/")
         self.driver.maximize_window()
         self.driver.implicitly_wait(20)
@@ -51,5 +51,5 @@ class BestBuySearchTest:
 
 
 if __name__ == "__main__":
-    obj = BestBuySearchTest()
-    obj.gotoexpedia()
+    obj = WalmartSearchTest()
+    obj.gotowalmart()
