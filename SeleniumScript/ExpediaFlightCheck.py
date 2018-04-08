@@ -4,8 +4,6 @@ The code below will take to the site http://www.expedia.com on chrome browser, f
 Departing, Returning, Traveler information and click on Search button.
 """
 
-
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
@@ -16,7 +14,7 @@ import os
 import time
 
 
-class expediaUnitTest():
+class ExpediaFlightCheck:
 
     def __init__(self):
         options = webdriver.ChromeOptions()
@@ -34,10 +32,19 @@ class expediaUnitTest():
 
     def gotoexpedia(self):
         self.driver.get("http://www.expedia.com/")
-        # self.driver.maximize_window()
-        # self.driver.implicitly_wait(20)
+        self.driver.maximize_window()
+        self.driver.implicitly_wait(20)
         ui.WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.ID, "tab-flight-tab-hp")))
         self.driver.find_element_by_id("tab-flight-tab-hp").click()
+        self.driver.switch_to.default_content()
+        self.driver.find_element_by_id("flight-origin-hp-flight").send_keys("San Jose, CA (SJC-Norman Y. Mineta San Jose Intl.)")
+        self.driver.find_element_by_id("flight-destination-hp-flight").send_keys("Dallas, TX (DFW-Dallas-Fort Worth Intl.)")
+        self.driver.switch_to.default_content()
+        self.driver.find_element_by_id("flight-departing-hp-flight").send_keys('10/12/2018')
+        self.driver.find_element_by_id("flight-returning-hp-flight").send_keys('10/26/2018')
+        self.driver.find_element_by_class_name("btn-label").click()
+
+        # self.driver.find_element_by_xpath("//*[@class = 'col gcw-location-field']").send_keys("San Jose, CA")
         # ui.WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.ID, "package-origin-hp-package")))
         # self.driver.find_element_by_id("package-origin-hp-package").send_keys('Seattle, Washington')
         # self.driver.find_element_by_id("package-destination-hp-package").send_keys('Dallas, Texas')
@@ -46,17 +53,17 @@ class expediaUnitTest():
         # self.driver.find_element_by_id('search-button-hp-package').click()
         # time.sleep(20)
 
-        parentTab = self.driver.find_element_by_id('flightModuleList')
-        for selectAll in parentTab.find_element_by_xpath("//*"):
-            if selectAll.get_attribute("class") == 'dollars price-emphasis':
-                print(selectAll.get.attribute("class"))
+        # parentTab = self.driver.find_element_by_id('flightModuleList')
+        # for selectAll in parentTab.find_element_by_xpath("//*"):
+        #     if selectAll.get_attribute("class") == 'dollars price-emphasis':
+        #         print(selectAll.get.attribute("class"))
 
     def teardown(self):
         self.driver.close()
 
 
 if __name__ == "__main__":
-    obj = expediaUnitTest()
+    obj = ExpediaFlightCheck()
     obj.gotoexpedia()
 
 
